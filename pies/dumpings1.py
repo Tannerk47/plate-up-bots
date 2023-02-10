@@ -19,52 +19,48 @@ def main():
             time.sleep(1)
             global first
             first = True
-
-            # 4,25 roll  2.4 cook
+            # 1.3 dough
+            # 2.7 meat  1.5 carrot
             # /3 pin /2 workstation 
 
-            with keyboard.Listener(on_press=on_press) as listener:
-                while ( break_program):
-                
-                    per(.1)
-                    right(.25)
-                    per(.1)
-                    oh(2)
-                     #grab
             
-                    
-                    left(.25) #cooler
-                    per(.1) #meat
-                    down(.4)
-                    left(.25)
-                    per(.1)
-                    oh(2.5/2) #cut meat
-                    per(.1)
-                    up(.25)
-                    right(.25)
-                    per(.1) #place meat
-                    down(.25)
-                    right(.25)
-                    per(.1) #grab carrot
-                    left(.25)
-                    per(.1)
-                    oh(1.7/2) #cut carrot
-                    per(.1)
-                    up(.25)
-                    right(.25)
-                    per(.1) #place carrot
-                    oh(.5)#roll
-                    per(.1)
-                    down(.25)
-                    per (.1) #place on hob
-
-                    time.sleep(1.5)
-                    #per(.1) #pie
-                    
-                    per(.1)
-                    left(.25)
-                    per(.1)
-                    up(.4)
+            while ( break_program):
+                
+                per(.1)
+                right(.2)
+                per(.1)
+                oh(.7)
+                 #grab
+        
+                
+                left(.2) #cooler
+                per(.1) #meat
+                upp(.3)
+                per(.1)
+                oh(1.4) #cut meat
+                per(.1)
+                right(.15)
+                per(.1) #place meat
+                down(.25)
+                right(.25)
+                per(.1) #grab carrot
+                up(.2)
+                upp(.2)
+                per(.1)
+                oh(.85) #cut carrot
+                per(.1)
+                right(.15)
+                per(.1) #place carrot
+                oh(.3)#roll
+                per(.1)
+                down(.5)
+                per(.1) #place on hob
+                time.sleep(.6)
+                
+                per(.1)
+                left(.2)
+                per(.1)
+                up(.5)
 
         
     
@@ -72,20 +68,17 @@ def main():
 def on_press(key):
     global break_program
     global end
-    print (key)
-    if key == keyboard.Key.end:
-        print ('end pressed')
-        break_program = False
-
-        return False
-    elif key == keyboard.Key.home:
-        print('home pressed')
-        break_program = True
-        return False
-    elif key == keyboard.Key.delete:
-        print('end pressed')
-        end = True
-        return False
+    #print (key)
+    match key:
+        case keyboard.Key.end:
+            print ('end pressed')
+            break_program = False
+        case keyboard.Key.home:
+            print('home pressed')
+            break_program = True
+        case keyboard.Key.delete:
+            print('end pressed')
+            end = True
     
 def left (x): #A
     PressKey(0x1E) 
@@ -102,10 +95,17 @@ def up (x):   #W
     time.sleep(x)
     ReleaseKey (0x11)
 
+def upp (x): #A&W    
+    PressKey(0x11)
+    PressKey(0x20)
+    time.sleep(x)
+    ReleaseKey (0x11)
+    ReleaseKey(0x20)
+
 def ul (x): #A&W    
     PressKey(0x11)
     up(.1)
-    per(.1)
+    per(.05)
     time.sleep(x)
     ReleaseKey(0x11)    
     
