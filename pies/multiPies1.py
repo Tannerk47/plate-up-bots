@@ -13,6 +13,7 @@ break_program = False
 end = False
 pause = False
 first = True
+choice = 0
 queue = []
 def main():
     while not end:
@@ -25,6 +26,7 @@ def main():
             blank = []
             global break_program
             global pause
+            global choice
 
             # 4,25 roll  2.4 cook
             # /3 pin /2 workstation 
@@ -40,16 +42,17 @@ def main():
                     upp(.3)
                     #right(.3)
                     per(.1)
-                    oh(4.3)
+                    oh(4.3/6)
                     per(.1) #grabo
                     first = False
                 else :
 
                     upp(.3)
-                    oh(3.3) #roll
+                   # oh(3.3/3) #roll
                     per(.1) #grab
                 
                 if queue[0] == 1:
+                    choice=1
                     left(.3) #cooler
                     per(.1) #meat
                     #right(.3)spowpdposoposo
@@ -60,12 +63,14 @@ def main():
                     per(.1)
                     oh(.1)
                 elif queue[0] == 2:
+                    choice=2
                     right(.3)
                     per(.1)
                     down(.5)
                     per(.1)
                     oh(.1)
                 elif queue[0] == 3:
+                    choice =3
                     down(.5)
                     right(.3)
                     per(.1)
@@ -84,9 +89,20 @@ def main():
                     time.sleep(2.4)
                     oh(.1)
                     per(.1)
-                    left(.3)
-                    per(.1)
-                    up(.5)
+                    if choice == 1:
+                        left(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice ==2 :
+                        dll(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice == 3:
+                        up(.3)
+                        ull(.3)
+                        per(.1)
+                        up(.2)
+                    
                     first = True
                 else :
                     print("is not empty")
@@ -98,9 +114,21 @@ def main():
                     down(.5)
                     oh(.1)
                     per(.1)
-                    left(.3)
-                    per(.1)
-                    up(.5)
+                    if choice == 1:
+                        left(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice == 2:
+                        dll(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice == 3:
+                        up(.4)
+                        ull(.4)
+                        per(.1)
+                        up(.2)
+                    
+
                     first = False
                     
                 for x in queue :
@@ -204,25 +232,39 @@ def up (x):   #W
     PressKey(0x11)
     time.sleep(x)
     ReleaseKey (0x11)
+    
+def down (x):   #S
+    PressKey(0x1F)
+    time.sleep(x)
+    ReleaseKey(0x1F)
 
-def upp (x): #A&W    
+def upp (x): #D&W    
     PressKey(0x11)
     PressKey(0x20)
     time.sleep(x)
     ReleaseKey (0x11)
     ReleaseKey(0x20)
 
-def upr (): #A&W    
-    ReleaseKey(0x11)
-    ReleaseKey(0x20)
+def dll (x): #A&S  
+    PressKey(0x1F)
+    PressKey(0x1E)
+    time.sleep(x)
+    ReleaseKey (0x1F)
+    ReleaseKey(0x1E)
+
+def ull (x): #W&A  
+    PressKey(0x11)
+    PressKey(0x1E)
+    time.sleep(x)
+    ReleaseKey (0x11)
+    ReleaseKey(0x1E)
+
+
 
        
     
 
-def down (x):   #S
-    PressKey(0x1F)
-    time.sleep(x)
-    ReleaseKey(0x1F)
+
 
 def per (x):   #P
     PressKey(0x19)
