@@ -11,6 +11,7 @@ from pynput import keyboard
 
 break_program = False
 end = False
+pause = False
 first = True
 queue = []
 def main():
@@ -21,59 +22,99 @@ def main():
             global first
             first = True
             global queue
+            blank = []
+            global break_program
+            global pause
 
             # 4,25 roll  2.4 cook
             # /3 pin /2 workstation 
 
-            with keyboard.Listener(on_press=on_press) as listener:
-                while ( break_program):
-                    print ("start")
-                    for x in queue :
-                        print(x)
-                    print("sleeping")
-                    time.sleep(5)
-                    print("done sleeping")
-                    for x in queue :
-                        print(x)
-                    print ('ur')
-                    keyMove(9);
-                    """
-                    if (first):
-                        per(.1)
-                        right(.3)
-                        per(.1)
-                        oh(2.3)
-                        per(.1) #grab
-                        first = False
-                    else :
-                        right(.3)
-                        oh(1) #roll
-                        per(.1) #grab
-                    
+            
+            while ( break_program):
+                
+                
+                
+                if (first):
+                    per(.1)
+
+                    upp(.3)
+                    #right(.3)
+                    per(.1)
+                    oh(4.3)
+                    per(.1) #grabo
+                    first = False
+                else :
+
+                    upp(.3)
+                    oh(3.3) #roll
+                    per(.1) #grab
+                
+                if queue[0] == 1:
                     left(.3) #cooler
                     per(.1) #meat
                     #right(.3)spowpdposoposo
                     #per(.1)
                     #time.sleep(.1)
                     #per(.1) #pie
-                    down(.4)
+                    down(.5)
                     per(.1)
                     oh(.1)
-                    #pyautogui.sleep(3)  cook
-                    up(.4)
-                    per(.1)
+                elif queue[0] == 2:
                     right(.3)
                     per(.1)
-                    oh(1.2)   #roll
-                    down(.4)
+                    down(.5)
+                    per(.1)
+                    oh(.1)
+                elif queue[0] == 3:
+                    down(.5)
+                    right(.3)
+                    per(.1)
+                    down(.3)
+                    per(.3)
+                    left(.3)
+                    down(.3)
+                    per(.1)
+                    oh(.1)
 
+                queue.pop(0)
+                if  len(queue) == 0:
                     
+                    pause = True
+                    print("is empty")
+                    time.sleep(2.4)
                     oh(.1)
                     per(.1)
                     left(.3)
                     per(.1)
                     up(.5)
-                    """
+                    first = True
+                else :
+                    print("is not empty")
+                    up(.5)
+                    per(.1)
+                    upp(.3)
+                    per(.1)
+                    oh(1.3)   #roll
+                    down(.5)
+                    oh(.1)
+                    per(.1)
+                    left(.3)
+                    per(.1)
+                    up(.5)
+                    first = False
+                    
+                for x in queue :
+                    print (x)
+                #pyautogui.sleep(3)  cook
+                
+                
+                if  len(queue) != 0:
+                    pause = False
+
+               
+                while  pause:
+                    print("sleep")
+                    time.sleep(1)
 
         
 def keyMove(x):
@@ -86,8 +127,7 @@ def keyMove(x):
             move(3)
         case 4:
             move(4)
-        case 9:
-            ur(1)
+       
     
 def move (x): 
     x=x%4
@@ -106,7 +146,9 @@ def move (x):
 def on_press(key):
     global break_program
     global end
-    print (key)
+    global queue
+    global pause
+    #print (key)
     match key:
         case keyboard.Key.end:
             print ('end pressed')
@@ -117,10 +159,35 @@ def on_press(key):
         case keyboard.Key.delete:
             print('end pressed')
             end = True
-        case keyboard.Key.pa:
-            
-    return False
-      
+        case keyboard.Key.page_up:
+            print('end pressed')
+            pause = False
+        case keyboard.Key.page_down:
+            print('end pressed')
+            pause = True
+        case keyboard.Key.print_screen:
+            print("#1 pressed")
+            queue.append(1)
+            pause = False
+        case keyboard.Key.scroll_lock:
+            print("#2 pressed")
+            queue.append(2)
+            pause = False
+        case keyboard.Key.pause:
+            print("#3 pressed")
+            queue.append(3)
+            pause = False
+        case keyboard.Key.backspace:
+            print("backspace pressed")
+            queue.pop
+        case keyboard.Key.enter:
+            print("enter pressed")
+            queue.clear
+        
+        
+        
+
+    return True
         
     
 def left (x): #A
@@ -138,8 +205,17 @@ def up (x):   #W
     time.sleep(x)
     ReleaseKey (0x11)
 
-def ur (x): #A&W    
-    keyboard.HotKey('w'+'d')
+def upp (x): #A&W    
+    PressKey(0x11)
+    PressKey(0x20)
+    time.sleep(x)
+    ReleaseKey (0x11)
+    ReleaseKey(0x20)
+
+def upr (): #A&W    
+    ReleaseKey(0x11)
+    ReleaseKey(0x20)
+
        
     
 
