@@ -378,23 +378,49 @@ def multiPies():
                 
                 
                 if (first):
+                    ull(.2)
                     per(.1)
+                    up(.2)
+                    oh(.1) # sink dough
+                    urr(.2)
+                    per(.1) #oil pizza
+                    up(.2)
+                    per(.1)
+                    left(.2) #tomato
+                    per(.1)
+                    right(.2)
+                    per(.1)
+                    oh(1.1) # cut x2
+                    per(.1)
+                    up(.2) 
+                    per(.1)#on pizza
 
-                    urr(.3)
-                    #right(.3)
+                    down(.4)
+                    dll(.2)
+                    per(.2)
+                    up(.4)
+                    right(.2)
                     per(.1)
-                    oh(4.3/6)
-                    per(.1) #grabo
+                    oh(1.5)
+                    per(.1)
+                    up(.2)
+                    per(.1)
                     first = False
                 else :
-
-                    urr(.3)
-                   # oh(3.3/3) #roll
-                    per(.1) #grab
+                    
+                    dll(.2)
+                    per(.2)
+                    up(.4)
+                    right(.2)
+                    per(.1)
+                    oh(1.5)
+                    per(.1)
+                    up(.2)
+                    per(.1)
                 
                 if queue[0] == 1:
-                    choice=1
-                    left(.3) #cooler
+                    
+                    time.sleep(.1)
                     per(.1) #meat
                     #right(.3)spowpdposoposo
                     #per(.1)
@@ -404,20 +430,39 @@ def multiPies():
                     per(.1)
                     oh(.1)
                 elif queue[0] == 2:
-                    choice=2
-                    right(.3)
-                    per(.1)
-                    down(.5)
-                    per(.1)
-                    oh(.1)
-                elif queue[0] == 3:
-                    choice =3
+                    
                     down(.5)
                     right(.3)
+                    down(.2)
+                    per(.1)
+                    left(.3)
+                    up(.4)
+                    right(.2)
+                    per(.1)
+                    oh(1.5)
+                    per(.1)
+                    up(.2)
+                    per(.1) # on piza
+                    time.sleep(.1)
                     per(.1)
                     down(.3)
-                    per(.3)
+                    per(.1)
+                    oh(.1)
+                elif queue[0] == 3: #onion
+                    
+                    down(.5)
+                    right(.3)
+                    per(.1)
                     left(.3)
+                    up(.4)
+                    right(.2)
+                    per(.1)
+                    oh(1.5)
+                    per(.1)
+                    up(.2)
+                    per(.1) # on piza
+                    time.sleep(.1)
+                    per(.1)
                     down(.3)
                     per(.1)
                     oh(.1)
@@ -427,47 +472,41 @@ def multiPies():
                     
                     pause = True
                     print("is empty")
-                    time.sleep(2.4)
+                    time.sleep(4)
                     oh(.1)
                     per(.1)
-                    if choice == 1:
-                        left(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice ==2 :
-                        dll(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice == 3:
-                        up(.3)
-                        ull(.3)
-                        per(.1)
-                        up(.2)
+                    left(.3)
+                    per(.1)
+                    
+                    
                     
                     first = True
                 else :
                     print("is not empty")
-                    up(.5)
+                    up(.4)
+                    ull(.2)
                     per(.1)
-                    urr(.3)
+                    up(.2)
+                    oh(.1) # sink dough
+                    urr(.2)
+                    per(.1) #oil pizza
+                    up(.2)
                     per(.1)
-                    oh(1.3)   #roll
+                    left(.2) #tomato
+                    per(.1)
+                    right(.2)
+                    per(.1)
+                    oh(2) # cut x2
+                    per(.1)
+                    up(.2) 
+                    per(.1)#on pizza
                     down(.5)
                     oh(.1)
                     per(.1)
-                    if choice == 1:
-                        left(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice == 2:
-                        dll(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice == 3:
-                        up(.4)
-                        ull(.4)
-                        per(.1)
-                        up(.2)
+                    left(.3)
+                    per(.1)
+                    
+                    
                     
 
                     first = False
