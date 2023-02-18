@@ -17,146 +17,20 @@ choice = 0
 queue = []
 count = 0
 def main():
-<<<<<<< Updated upstream
-    while not end:
-        with keyboard.Listener(on_press=on_press) as listener:
-            print("starting") 
-            time.sleep(1)
-            global first
-            first = True
-            global queue
-            blank = []
-            global break_program
-            global pause
-            global choice
-=======
     
     global rotate 
     rotate = int(input("which orientation? default up is 1 then incres by 1 clock wise"))-1
     multiPies()
->>>>>>> Stashed changes
 
             # 4,25 roll  2.4 cook
             # /3 pin /2 workstation 
 
             
-            while ( break_program):
-                
-                
-                
-                if (first):
-                    per(.1)
-
-                    upp(.3)
-                    #right(.3)
-                    per(.1)
-                    oh(4.3/6)
-                    per(.1) #grabo
-                    first = False
-                else :
-
-                    upp(.3)
-                   # oh(3.3/3) #roll
-                    per(.1) #grab
-                
-                if queue[0] == 1:
-                    choice=1
-                    left(.3) #cooler
-                    per(.1) #meat
-                    #right(.3)spowpdposoposo
-                    #per(.1)
-                    #time.sleep(.1)
-                    #per(.1) #pie
-                    down(.5)
-                    per(.1)
-                    oh(.1)
-                elif queue[0] == 2:
-                    choice=2
-                    right(.3)
-                    per(.1)
-                    down(.5)
-                    per(.1)
-                    oh(.1)
-                elif queue[0] == 3:
-                    choice =3
-                    down(.5)
-                    right(.3)
-                    per(.1)
-                    down(.3)
-                    per(.3)
-                    left(.3)
-                    down(.3)
-                    per(.1)
-                    oh(.1)
-
-                queue.pop(0)
-                if  len(queue) == 0:
-                    
-                    pause = True
-                    print("is empty")
-                    time.sleep(2.4)
-                    oh(.1)
-                    per(.1)
-                    if choice == 1:
-                        left(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice ==2 :
-                        dll(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice == 3:
-                        up(.3)
-                        ull(.3)
-                        per(.1)
-                        up(.2)
-                    
-                    first = True
-                else :
-                    print("is not empty")
-                    up(.5)
-                    per(.1)
-                    upp(.3)
-                    per(.1)
-                    oh(1.3)   #roll
-                    down(.5)
-                    oh(.1)
-                    per(.1)
-                    if choice == 1:
-                        left(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice == 2:
-                        dll(.3)
-                        per(.1)
-                        up(.5)
-                    elif choice == 3:
-                        up(.4)
-                        ull(.4)
-                        per(.1)
-                        up(.2)
-                    
-
-                    first = False
-                    
-                for x in queue :
-                    print (x)
-                #pyautogui.sleep(3)  cook
-                
-                
-                if  len(queue) != 0:
-                    pause = False
-
-               
-                while  pause:
-                    print("sleep")
-                    time.sleep(1)
-
+            
         
 def keyMove(x):
     match x :
         case 8:
-<<<<<<< Updated upstream
             move(1)
         case 6:
             move(2)
@@ -170,7 +44,6 @@ def move (x):
     x=x%4
     match x :
         case 1:
-=======
             MovR(1)
         case 9:
             MovR(2)
@@ -221,7 +94,6 @@ def MovR (x):
     global rotate
     match keys[(x+(rotate*2))%len(keys)] :
         case 8:
->>>>>>> Stashed changes
             up(.2)
         case 9:
             urr(.2)
@@ -307,10 +179,11 @@ def on_press(key):
             pause = False
         case keyboard.Key.backspace:
             print("backspace pressed")
-            queue.pop
+            if(len(queue) > 1):
+                queue.pop(0)
         case keyboard.Key.enter:
             print("enter pressed")
-            queue.clear
+            queue.clear()
         case keyboard.Key.f1:
             print("one pressed")
             count = 1
@@ -356,23 +229,20 @@ def down (x):   #S
     time.sleep(x)
     ReleaseKey(0x1F)
 
-<<<<<<< Updated upstream
-def upp (x): #D&W    
-=======
+
 def down (x):   #S
     PressKey(0x1F)
     time.sleep(x)
     ReleaseKey(0x1F)
 
 def urr (x): #W&D   
->>>>>>> Stashed changes
     PressKey(0x11)
     PressKey(0x20)
     time.sleep(x)
     ReleaseKey (0x11)
     ReleaseKey(0x20)
 
-<<<<<<< Updated upstream
+
 def dll (x): #A&S  
     PressKey(0x1F)
     PressKey(0x1E)
@@ -388,14 +258,12 @@ def ull (x): #W&A
     ReleaseKey(0x1E)
 
 
-=======
 def drr (x): #W&D   
     PressKey(0x1F)
     PressKey(0x20)
     time.sleep(x)
     ReleaseKey (0x1F)
     ReleaseKey(0x20)
->>>>>>> Stashed changes
 
 
 def dll (x): #A&S  
@@ -485,8 +353,7 @@ def KeyPress():
     PressKey(0x10) # press Q
     time.sleep(.05)
     ReleaseKey(0x10) #release Q
-<<<<<<< Updated upstream
-=======
+
     
     
 def multiPies():
@@ -511,27 +378,22 @@ def multiPies():
                 
                 
                 if (first):
-                    #MovT(5)
-                    #MovT(9)
-                    #MovT(5 )
-                    #MovT(0,4.3)
-                    #MovT(5)
-                    per(.1)
-                    urr(.2)
-                    per(.1)
-                    oh(4.3)
                     per(.1)
 
+                    urr(.3)
+                    #right(.3)
+                    per(.1)
+                    oh(4.3/6)
+                    per(.1) #grabo
                     first = False
                 else :
-                    urr(.2)
-                    oh(3.3)
-                    per(.1)
-                   #MovT(0,3.3)
-                   #MovT(5)
-                    print ("skipping prep")
+
+                    urr(.3)
+                   # oh(3.3/3) #roll
+                    per(.1) #grab
                 
                 if queue[0] == 1:
+                    choice=1
                     left(.3) #cooler
                     per(.1) #meat
                     #right(.3)spowpdposoposo
@@ -541,19 +403,15 @@ def multiPies():
                     down(.5)
                     per(.1)
                     oh(.1)
-                    #MovT(4)
-                    #MovT(5)
-                    #MovT(2)
-                    #MovT(2)
-                    #MovT(5)
-                    #MovT(0)
                 elif queue[0] == 2:
+                    choice=2
                     right(.3)
                     per(.1)
                     down(.5)
                     per(.1)
                     oh(.1)
                 elif queue[0] == 3:
+                    choice =3
                     down(.5)
                     right(.3)
                     per(.1)
@@ -572,9 +430,20 @@ def multiPies():
                     time.sleep(2.4)
                     oh(.1)
                     per(.1)
-                    left(.3)
-                    per(.1)
-                    up(.5)
+                    if choice == 1:
+                        left(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice ==2 :
+                        dll(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice == 3:
+                        up(.3)
+                        ull(.3)
+                        per(.1)
+                        up(.2)
+                    
                     first = True
                 else :
                     print("is not empty")
@@ -586,10 +455,21 @@ def multiPies():
                     down(.5)
                     oh(.1)
                     per(.1)
+                    if choice == 1:
+                        left(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice == 2:
+                        dll(.3)
+                        per(.1)
+                        up(.5)
+                    elif choice == 3:
+                        up(.4)
+                        ull(.4)
+                        per(.1)
+                        up(.2)
                     
-                    left(.3)
-                    per(.1)
-                    up(.5)
+
                     first = False
                     
                 for x in queue :
@@ -604,8 +484,7 @@ def multiPies():
                 while  pause and break_program:
                     print("sleep")
                     time.sleep(1)
-    
->>>>>>> Stashed changes
+
 
 main()
              
