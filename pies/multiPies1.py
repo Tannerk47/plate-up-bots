@@ -15,7 +15,9 @@ pause = False
 first = True
 choice = 0
 queue = []
+count = 0
 def main():
+<<<<<<< Updated upstream
     while not end:
         with keyboard.Listener(on_press=on_press) as listener:
             print("starting") 
@@ -27,6 +29,12 @@ def main():
             global break_program
             global pause
             global choice
+=======
+    
+    global rotate 
+    rotate = int(input("which orientation? default up is 1 then incres by 1 clock wise"))-1
+    multiPies()
+>>>>>>> Stashed changes
 
             # 4,25 roll  2.4 cook
             # /3 pin /2 workstation 
@@ -148,6 +156,7 @@ def main():
 def keyMove(x):
     match x :
         case 8:
+<<<<<<< Updated upstream
             move(1)
         case 6:
             move(2)
@@ -161,18 +170,100 @@ def move (x):
     x=x%4
     match x :
         case 1:
-            up(.2)
+=======
+            MovR(1)
+        case 9:
+            MovR(2)
+        case 6:
+            MovR(3)
+        case 3:
+            MovR(4)
         case 2:
+            MovR(5)
+        case 1:
+            MovR(6)
+        case 4:
+            MovR(7)
+        case 7:
+            MovR(8)
+        case 5:
+            per(.1)
+        case 0:
+            oh(.1)
+
+def MovT(x,t):
+    
+    match x :
+        case 8:
+            MovR(1,t)
+        case 9:
+            MovR(2,t)
+        case 6:
+            MovR(3,t)
+        case 3:
+            MovR(4,t)
+        case 2:
+            MovR(5,t)
+        case 1:
+            MovR(6,t)
+        case 4:
+            MovR(7,t)
+        case 7:
+            MovR(8,t)
+        case 5:
+            per(t)
+        case 0:
+            oh(t)
+       
+    
+def MovR (x): 
+    global keys #8,9,6,3,2,1,4,7
+    global rotate
+    match keys[(x+(rotate*2))%len(keys)] :
+        case 8:
+>>>>>>> Stashed changes
+            up(.2)
+        case 9:
+            urr(.2)
+        case 6:
             right(.2)
-        case 3: 
+        case 3:
+            drr(.2)
+        case 2:
             down(.2)
+        case 1:
+            dll(.2)
         case 4:
             left(.2)
+        case 7:
+            ull(.2)
+
+def MovR (x,t): 
+    global keys #8,9,6,3,2,1,4,7
+    global rotate
+    match keys[(x+(rotate*2))%len(keys)] :
+        case 8:
+            up(t)
+        case 9:
+            urr(t)
+        case 6:
+            right(t)
+        case 3:
+            drr(t)
+        case 2:
+            down(t)
+        case 1:
+            dll(t)
+        case 4:
+            left(t)
+        case 7:
+            ull(t)
     
 
 
 def on_press(key):
     global break_program
+    global count
     global end
     global queue
     global pause
@@ -195,15 +286,24 @@ def on_press(key):
             pause = True
         case keyboard.Key.print_screen:
             print("#1 pressed")
-            queue.append(1)
+            while (count >= 1):
+                queue.append(1)
+                count -=1
+            count = 1
             pause = False
         case keyboard.Key.scroll_lock:
             print("#2 pressed")
-            queue.append(2)
+            while (count >= 1):
+                queue.append(2)
+                count -=1
+            count = 1
             pause = False
         case keyboard.Key.pause:
             print("#3 pressed")
-            queue.append(3)
+            while (count >= 1):
+                queue.append(3)
+                count -=1
+            count = 1
             pause = False
         case keyboard.Key.backspace:
             print("backspace pressed")
@@ -211,6 +311,24 @@ def on_press(key):
         case keyboard.Key.enter:
             print("enter pressed")
             queue.clear
+        case keyboard.Key.f1:
+            print("one pressed")
+            count = 1
+        case keyboard.Key.f2:
+            print("one pressed")
+            count = 2
+        case keyboard.Key.f3:
+            print("one pressed")
+            count = 3
+        case keyboard.Key.f4:
+            print("one pressed")
+            count = 4
+        case keyboard.Key.f5:
+            print("one pressed")
+            count = 5
+        case keyboard.Key.f6:
+            print("one pressed")
+            count = 6
         
         
         
@@ -238,13 +356,23 @@ def down (x):   #S
     time.sleep(x)
     ReleaseKey(0x1F)
 
+<<<<<<< Updated upstream
 def upp (x): #D&W    
+=======
+def down (x):   #S
+    PressKey(0x1F)
+    time.sleep(x)
+    ReleaseKey(0x1F)
+
+def urr (x): #W&D   
+>>>>>>> Stashed changes
     PressKey(0x11)
     PressKey(0x20)
     time.sleep(x)
     ReleaseKey (0x11)
     ReleaseKey(0x20)
 
+<<<<<<< Updated upstream
 def dll (x): #A&S  
     PressKey(0x1F)
     PressKey(0x1E)
@@ -260,6 +388,29 @@ def ull (x): #W&A
     ReleaseKey(0x1E)
 
 
+=======
+def drr (x): #W&D   
+    PressKey(0x1F)
+    PressKey(0x20)
+    time.sleep(x)
+    ReleaseKey (0x1F)
+    ReleaseKey(0x20)
+>>>>>>> Stashed changes
+
+
+def dll (x): #A&S  
+    PressKey(0x1F)
+    PressKey(0x1E)
+    time.sleep(x)
+    ReleaseKey (0x1F)
+    ReleaseKey(0x1E)
+
+def ull (x): #W&A  
+    PressKey(0x11)
+    PressKey(0x1E)
+    time.sleep(x)
+    ReleaseKey (0x11)
+    ReleaseKey(0x1E)
 
        
     
@@ -334,6 +485,127 @@ def KeyPress():
     PressKey(0x10) # press Q
     time.sleep(.05)
     ReleaseKey(0x10) #release Q
+<<<<<<< Updated upstream
+=======
+    
+    
+def multiPies():
+    print("starting multi pies")
+    while not end:
+        with keyboard.Listener(on_press=on_press) as listener:
+            print("starting") 
+            time.sleep(1)
+            global first
+            first = True
+            global queue
+            blank = []
+            global break_program
+            global pause
+
+            # 4,25 roll  2.4 cook
+            # /3 pin /2 workstation 
+
+            
+            while ( break_program):
+                
+                
+                
+                if (first):
+                    #MovT(5)
+                    #MovT(9)
+                    #MovT(5 )
+                    #MovT(0,4.3)
+                    #MovT(5)
+                    per(.1)
+                    urr(.2)
+                    per(.1)
+                    oh(4.3)
+                    per(.1)
+
+                    first = False
+                else :
+                    urr(.2)
+                    oh(3.3)
+                    per(.1)
+                   #MovT(0,3.3)
+                   #MovT(5)
+                    print ("skipping prep")
+                
+                if queue[0] == 1:
+                    left(.3) #cooler
+                    per(.1) #meat
+                    #right(.3)spowpdposoposo
+                    #per(.1)
+                    #time.sleep(.1)
+                    #per(.1) #pie
+                    down(.5)
+                    per(.1)
+                    oh(.1)
+                    #MovT(4)
+                    #MovT(5)
+                    #MovT(2)
+                    #MovT(2)
+                    #MovT(5)
+                    #MovT(0)
+                elif queue[0] == 2:
+                    right(.3)
+                    per(.1)
+                    down(.5)
+                    per(.1)
+                    oh(.1)
+                elif queue[0] == 3:
+                    down(.5)
+                    right(.3)
+                    per(.1)
+                    down(.3)
+                    per(.3)
+                    left(.3)
+                    down(.3)
+                    per(.1)
+                    oh(.1)
+
+                queue.pop(0)
+                if  len(queue) == 0:
+                    
+                    pause = True
+                    print("is empty")
+                    time.sleep(2.4)
+                    oh(.1)
+                    per(.1)
+                    left(.3)
+                    per(.1)
+                    up(.5)
+                    first = True
+                else :
+                    print("is not empty")
+                    up(.5)
+                    per(.1)
+                    urr(.3)
+                    per(.1)
+                    oh(1.3)   #roll
+                    down(.5)
+                    oh(.1)
+                    per(.1)
+                    
+                    left(.3)
+                    per(.1)
+                    up(.5)
+                    first = False
+                    
+                for x in queue :
+                    print (x)
+                #pyautogui.sleep(3)  cook
+                
+                
+                if  len(queue) != 0:
+                    pause = False
+
+               
+                while  pause and break_program:
+                    print("sleep")
+                    time.sleep(1)
+    
+>>>>>>> Stashed changes
 
 main()
              
