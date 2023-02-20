@@ -15,11 +15,19 @@ pause = False
 first = True
 choice = 0
 queue = []
-count = 0
+count = 1
+sink = True
+rate = False
 def main():
-    
+    global sink
     global rotate 
     rotate = int(input("which orientation? default up is 1 then incres by 1 clock wise"))-1
+    temp = int(input("sink 1 or 0"))
+    if (temp == 1 ):
+        sink = True
+    else :
+        sink = False
+
     multiPies()
 
             # 4,25 roll  2.4 cook
@@ -60,9 +68,9 @@ def move (x):
         case 7:
             MovR(8)
         case 5:
-            per(.1)
+            per(.05)
         case 0:
-            oh(.1)
+            oh(.05)
 
 def MovT(x,t):
     
@@ -156,6 +164,9 @@ def on_press(key):
         case keyboard.Key.page_down:
             print('end pressed')
             pause = True
+        case keyboard.Key.insert:
+            print('end pressed')
+            rate = True
         case keyboard.Key.print_screen:
             print("#1 pressed")
             while (count >= 1):
@@ -368,8 +379,9 @@ def multiPies():
             blank = []
             global break_program
             global pause
-
-            # 4,25 roll  2.4 cook
+            global sink
+            global rate
+                        # 4,25 roll  2.4 cook
             # /3 pin /2 workstation 
 
             
@@ -378,49 +390,63 @@ def multiPies():
                 
                 
                 if (first):
-                    per(.1)
+                    if(sink):
+                        ull(.15)
+                        per(.05)
+                        up(.15)
+                        oh(.05)
+                        urr(.2)
+                        per(.05)
+                        oh(2.7/3)
+                        per(.05) #grabo
+                    else :
+                        per(.05)
+                        urr(.2)
+                        #right(.3)
+                        per(.05)
+                        oh(4.3)
+                        per(.05) #grabo
 
-                    urr(.3)
-                    #right(.3)
-                    per(.1)
-                    oh(4.3/6)
-                    per(.1) #grabo
+                    
                     first = False
                 else :
 
-                    urr(.3)
-                   # oh(3.3/3) #roll
-                    per(.1) #grab
+                    urr(.2)
+                    if (sink):
+                        oh(1.7/10)
+                    else: 
+                        oh(3) #roll
+                    per(.05) #grab
                 
                 if queue[0] == 1:
                     choice=1
-                    left(.3) #cooler
-                    per(.1) #meat
+                    left(.2) #cooler
+                    per(.05) #meat
                     #right(.3)spowpdposoposo
-                    #per(.1)
-                    #time.sleep(.1)
-                    #per(.1) #pie
-                    down(.5)
-                    per(.1)
-                    oh(.1)
+                    #per(.05)
+                    #time.sleep(.05)
+                    #per(.05) #pie
+                    down(.35)
+                    per(.05)
+                    oh(.05)
                 elif queue[0] == 2:
                     choice=2
-                    right(.3)
-                    per(.1)
-                    down(.5)
-                    per(.1)
-                    oh(.1)
+                    right(.15)
+                    per(.05)
+                    down(.3)
+                    per(.05)
+                    oh(.05)
                 elif queue[0] == 3:
                     choice =3
                     down(.5)
                     right(.3)
-                    per(.1)
+                    per(.05)
                     down(.3)
                     per(.3)
                     left(.3)
                     down(.3)
-                    per(.1)
-                    oh(.1)
+                    per(.05)
+                    oh(.05)
 
                 queue.pop(0)
                 if  len(queue) == 0:
@@ -428,45 +454,58 @@ def multiPies():
                     pause = True
                     print("is empty")
                     time.sleep(2.4)
-                    oh(.1)
-                    per(.1)
+                    oh(.05)
+                    per(.05)
                     if choice == 1:
-                        left(.3)
-                        per(.1)
-                        up(.5)
+                        left(.15)
+                        per(.05)
+                        up(.4)
                     elif choice ==2 :
                         dll(.3)
-                        per(.1)
+                        per(.05)
                         up(.5)
                     elif choice == 3:
                         up(.3)
                         ull(.3)
-                        per(.1)
+                        per(.05)
                         up(.2)
                     
                     first = True
                 else :
                     print("is not empty")
-                    up(.5)
-                    per(.1)
-                    urr(.3)
-                    per(.1)
-                    oh(1.3)   #roll
-                    down(.5)
-                    oh(.1)
-                    per(.1)
+                    if(sink):
+                        up(.4)
+                        ull(.15)
+                        per(.05)
+                        up(.15)
+                        oh(.05)
+                        urr(.2)
+                        per(.05)
+                        oh(1)#roll
+                        down(.4)
+                        oh(.05)
+                        per(.05)
+                    else :
+                        up(.4)
+                        per(.05)
+                        urr(.2)
+                        per(.05)
+                        oh(1.3)   #roll
+                        down(.4)
+                        oh(.05)
+                        per(.05)
                     if choice == 1:
-                        left(.3)
-                        per(.1)
-                        up(.5)
+                        left(.15)
+                        per(.05)
+                        up(.4)
                     elif choice == 2:
                         dll(.3)
-                        per(.1)
+                        per(.05)
                         up(.5)
                     elif choice == 3:
                         up(.4)
                         ull(.4)
-                        per(.1)
+                        per(.05)
                         up(.2)
                     
 
