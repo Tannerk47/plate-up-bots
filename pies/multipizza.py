@@ -15,7 +15,7 @@ pause = False
 first = True
 choice = 0
 queue = []
-count = 0
+count = 1
 def main():
     
     global rotate 
@@ -382,7 +382,7 @@ def multiPies():
                     per(.1)
                     up(.2)
                     oh(.1) # sink dough
-                    urr(.2)
+                    urr(.3)
                     per(.1) #oil pizza
                     up(.2)
                     per(.1)
@@ -390,7 +390,7 @@ def multiPies():
                     per(.1)
                     right(.2)
                     per(.1)
-                    oh(1.1) # cut x2
+                    oh(2) # cut x2
                     per(.1)
                     up(.2) 
                     per(.1)#on pizza
@@ -430,7 +430,7 @@ def multiPies():
                     per(.1)
                     oh(.1)
                 elif queue[0] == 2:
-                    
+                    time.sleep(.1)
                     down(.5)
                     right(.3)
                     down(.2)
@@ -445,7 +445,7 @@ def multiPies():
                     per(.1) # on piza
                     time.sleep(.1)
                     per(.1)
-                    down(.3)
+                    down(.4)
                     per(.1)
                     oh(.1)
                 elif queue[0] == 3: #onion
@@ -463,7 +463,7 @@ def multiPies():
                     per(.1) # on piza
                     time.sleep(.1)
                     per(.1)
-                    down(.3)
+                    down(.4)
                     per(.1)
                     oh(.1)
 
@@ -477,6 +477,7 @@ def multiPies():
                     per(.1)
                     left(.3)
                     per(.1)
+                    up(.4)
                     
                     
                     
@@ -505,6 +506,7 @@ def multiPies():
                     per(.1)
                     left(.3)
                     per(.1)
+
                     
                     
                     
