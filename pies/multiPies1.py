@@ -463,9 +463,9 @@ def multiPies():
                     per(.05)
                     left(.4)
                     per(.05) # de seed portioner auto
-                    oh(.3)
+                    #oh(.3)
                     
-                    oh(3)
+                    oh(3.3)
                     right(.4)
                     drr(.2)
                     per(.05) #trash
