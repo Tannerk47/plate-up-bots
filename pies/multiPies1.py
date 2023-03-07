@@ -146,6 +146,7 @@ def on_press(key):
     global count
     global end
     global queue
+    global rate
     global pause
     #print (key)
     match key:
@@ -159,7 +160,10 @@ def on_press(key):
             print('end pressed')
             end = True
         case keyboard.Key.page_up:
-            print('end pressed')
+            while (count >= 1):
+                queue.append(4)
+                count -=1
+            count = 1
             pause = False
         case keyboard.Key.page_down:
             print('end pressed')
@@ -397,15 +401,15 @@ def multiPies():
                         oh(.05)
                         urr(.2)
                         per(.05)
-                        oh(2.7/3)
-                        per(.05) #grabo
+                        oh(2.7/2)
+                        #per(.05) #grabo
                     else :
                         per(.05)
                         urr(.2)
                         #right(.3)
                         per(.05)
-                        oh(4.3)
-                        per(.05) #grabo
+                        oh(4.25/2)
+                       # per(.05) #grabo
 
                     
                     first = False
@@ -413,13 +417,14 @@ def multiPies():
 
                     urr(.2)
                     if (sink):
-                        oh(1.7/10)
+                        oh(.7/2)
                     else: 
-                        oh(3) #roll
-                    per(.05) #grab
+                        oh(2.25/2) #roll
+                    #per(.05) #grab
                 
                 if queue[0] == 1:
                     choice=1
+                    per(.05) #grabo
                     left(.2) #cooler
                     per(.05) #meat
                     #right(.3)spowpdposoposo
@@ -431,22 +436,53 @@ def multiPies():
                     oh(.05)
                 elif queue[0] == 2:
                     choice=2
+                    per(.05) #grabo
                     right(.15)
                     per(.05)
-                    down(.3)
+                    down(.4)
                     per(.05)
                     oh(.05)
                 elif queue[0] == 3:
                     choice =3
+                    per(.05) #grabo
                     down(.5)
                     right(.3)
                     per(.05)
                     down(.3)
-                    per(.3)
+                    per(.05)
                     left(.3)
                     down(.3)
                     per(.05)
                     oh(.05)
+                elif queue[0] == 4:
+                    choice = 3
+                    
+                    down(.5)
+                    right(.3)
+                    urr(.2)
+                    per(.05)
+                    left(.4)
+                    per(.05) # de seed portioner auto
+                    oh(.3)
+                    
+                    oh(3)
+                    right(.4)
+                    drr(.2)
+                    per(.05) #trash
+                    left(.4)
+                    per(.05)
+                    up(.3)
+                    urr(.2)
+                    per(.05)
+                    time.sleep(.05)
+                    per(.05)
+                    down(.4)
+                    per(.05)
+                    oh(.05)
+
+
+
+
 
                 queue.pop(0)
                 if  len(queue) == 0:
@@ -457,25 +493,24 @@ def multiPies():
                     oh(.05)
                     per(.05)
                     if choice == 1:
-                        left(.15)
+                        dll(.3)
                         per(.05)
-                        up(.4)
+                        up(.5)
                     elif choice ==2 :
                         dll(.3)
                         per(.05)
                         up(.5)
                     elif choice == 3:
-                        up(.3)
-                        ull(.3)
+                        dll(.3)
                         per(.05)
-                        up(.2)
+                        up(.5)
                     
                     first = True
                 else :
                     print("is not empty")
                     if(sink):
                         up(.4)
-                        ull(.15)
+                        ull(.2)
                         per(.05)
                         up(.15)
                         oh(.05)
@@ -494,19 +529,33 @@ def multiPies():
                         down(.4)
                         oh(.05)
                         per(.05)
+
                     if choice == 1:
-                        left(.15)
+                        dll(.3)
                         per(.05)
-                        up(.4)
+                        up(.5)
                     elif choice == 2:
                         dll(.3)
                         per(.05)
                         up(.5)
                     elif choice == 3:
-                        up(.4)
-                        ull(.4)
+                        dll(.3)
                         per(.05)
-                        up(.2)
+                        up(.5)
+
+                   # if choice == 1:
+                   #     left(.15)
+                   #     per(.05)
+                   #     up(.4)
+                   # elif choice == 2:
+                   #     dll(.3)
+                   #     per(.05)
+                   #     up(.5)
+                   # elif choice == 3:
+                   #     up(.4)
+                   #     ull(.4)
+                   #     per(.05)
+                   #     up(.2)
                     
 
                     first = False
